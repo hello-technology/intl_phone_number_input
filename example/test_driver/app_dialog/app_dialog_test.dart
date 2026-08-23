@@ -5,10 +5,8 @@ import 'package:test/test.dart';
 main() {
   group('International Phone Number Input', () {
     final inputTextFieldFinder = find.byValueKey(TestHelper.TextInputKeyValue);
-    final dropdownButtonFinder =
-        find.byValueKey(TestHelper.DropdownButtonKeyValue);
-    final countrySearchInputFinder =
-        find.byValueKey(TestHelper.CountrySearchInputKeyValue);
+    final dropdownButtonFinder = find.byValueKey(TestHelper.DropdownButtonKeyValue);
+    final countrySearchInputFinder = find.byValueKey(TestHelper.CountrySearchInputKeyValue);
 
     late FlutterDriver driver;
 
@@ -17,9 +15,7 @@ main() {
     });
 
     tearDownAll(() async {
-      if (driver != null) {
-        driver.close();
-      }
+      driver.close();
     });
 
     test('Tap On TextField and enter text', () async {
@@ -42,8 +38,7 @@ main() {
     });
 
     test('Scroll to view and Select Country', () async {
-      await driver.scroll(find.byType('SingleChildScrollView'), 0, -17500,
-          Duration(milliseconds: 300));
+      await driver.scroll(find.byType('SingleChildScrollView'), 0, -17500, Duration(milliseconds: 300));
 
       await driver.tap(find.byValueKey(TestHelper.countryItemKeyValue('US')));
     });
